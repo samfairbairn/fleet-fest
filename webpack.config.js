@@ -22,6 +22,7 @@ module.exports = {
   output: {
     path: BUILD_PATH,
     filename: 'bundle.js',
+    publicPath: 'https://kentishfleetfestival.co.uk/',
   },
   plugins: [
     new ExtractTextPlugin('styles.css', {
@@ -45,7 +46,7 @@ module.exports = {
           ExtractTextPlugin.extract('style-loader', 'css-loader?minimize!autoprefixer-loader?browsers=last 3 version!sass-loader')
       },
       {
-        test: /\.(jpe?g|png|svg)$/i,
+        test: /\.(jpe?g|png|svg|gif)$/i,
         loaders: DEV ? [
           'url-loader?hash=sha512&digest=hex&limit=10&name=/[hash].[ext]',
           'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'

@@ -66,6 +66,12 @@ body {
 	width: 100%;
 	height: 100%;
 	pointer-events: none;
+
+	.is-mobile & {
+		background-image: url("../assets/ball_l.gif");
+		background-size: cover;
+		background-position: center center;
+	}
 }
 
 .background-overlay {
@@ -94,6 +100,10 @@ body {
 		top: 0;
 		left: 50%;
 	}
+
+	.is-mobile & {
+		display: none;
+	}
 }
 
 .video {
@@ -110,6 +120,9 @@ body {
 
 $logoWidth: 500px;
 $logoWidthShrinked: 250px;
+
+$logoWidth_mobile: 250px;
+$logoWidthShrinked_mobile: 150px;
 
 .header {
 	position: relative;
@@ -130,6 +143,7 @@ $logoWidthShrinked: 250px;
 	height: $logoWidth * (174/500);
 	background-image: url("../assets/logo.png");
 	background-size: 100% auto;
+	background-repeat: no-repeat;
 	transition-property: width, height;
 	transition-duration: 0.5s;
 	transition-timing-function: ease-in-out;
@@ -138,16 +152,50 @@ $logoWidthShrinked: 250px;
 		width: $logoWidthShrinked;
 		height: $logoWidthShrinked * (174/500);
 	}
+
+	@media (max-width: 960px) {
+		width: 350px;
+		height: 350px * (174/500);
+	}
+
+	@media (max-width: 640px) {
+		width: $logoWidth_mobile;
+		height: $logoWidth_mobile * (174/500);
+	}
 }
 
-.tagline {
+.tagline,
+.date {
 	position: relative;
 	display: block;
 	font-size: 24px;
 	color: white;
 	letter-spacing: 1px;
 	font-weight: bold;
-	margin: 40px 0 0 0;
+	margin: 60px 0 0 0;
+	text-align: center;
+
+	@media (max-width: 960px) {
+		font-size: 22px;
+	}
+
+	@media (max-width: 640px) {
+		font-size: 18px;
+	}
+}
+
+.date {
+	font-size: 32px;
+	margin: 10px 0 0 0;
+	font-weight: bold;
+
+	@media (max-width: 960px) {
+		font-size: 28px;
+	}
+
+	@media (max-width: 640px) {
+		font-size: 24px;
+	}
 }
 
 .about {
@@ -161,23 +209,39 @@ $logoWidthShrinked: 250px;
 	height: 100%;
 	padding: 40px;
 
-	font-size: 28px;
 	text-align: center;
-	font-size: 24px;
+	font-size: 22px;
 	color: white;
 	letter-spacing: 1px;
+
+	@media (max-width: 960px) {
+		font-size: 18px;
+	}
+
+	@media (max-width: 640px) {
+		padding: 20px;
+		font-size: 12px;
+	}
 
 }
 
 .copy {
 	display: block;
-	margin: 0;
-	width: 80%;
 	margin: 0 auto 40px;
+	width: 80%;
+
+	@media (max-width: 960px) {
+		margin: 0 auto 30px;
+	}
+
+	@media (max-width: 640px) {
+		width: 100%;
+		margin: 0 auto 20px;
+	}
 }
 
 .social {
-	margin: 40px 0 0;
+	margin: 20px 0;
 	padding: 0;
 
 	li {
@@ -185,10 +249,22 @@ $logoWidthShrinked: 250px;
 		padding: 0;
 		display: inline-block;
 
+		@media (max-width: 960px) {
+			margin: 0 10px;
+		}
+
 		a {
 			color: white;
 			font-size: 40px;
 			text-decoration: none;
+
+			@media (max-width: 960px) {
+				font-size: 32px;
+			}
+
+			@media (max-width: 640px) {
+				font-size: 24px;
+			}
 		}
 	}
 }
